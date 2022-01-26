@@ -7,10 +7,11 @@ void show_employee_details();
 struct Employee
 {
 	char emp_name[50];
+	char age[10];
 	char department_name[50];
 	char emp_phone_no[20];
 	char emp_salary[100];
-}empdet;
+}empdet[100];
 
 int main()
 { char opt[1];
@@ -20,7 +21,6 @@ int main()
 	if(strcmpi(opt,"Y")==0)
 	{
 		read_employee_details();
-		show_employee_details();
 	}
 	else
 	printf("\nWrong Input");
@@ -28,21 +28,51 @@ int main()
 }
 
 void read_employee_details()
-{
+{ int opt,i=0;
 	printf("\nEnter Employee Name : ");
-	scanf("%s",empdet.emp_name);
+	scanf("%s",empdet[0].emp_name);
+	printf("\nEnter Employee Age : ");
+	scanf("%s",empdet[0].age);
 	printf("\nEnter Employee Department Name : ");
-	scanf("%s",empdet.department_name);
+	scanf("%s",empdet[0].department_name);
 	printf("\nEnter Employee Phone Number : ");
-	scanf("%s",empdet.emp_phone_no);
+	scanf("%s",empdet[0].emp_phone_no);
 	printf("\nEnter Employee Salary : ");
-	scanf("%s",empdet.emp_salary);
+	scanf("%s",empdet[0].emp_salary);
+	
+L1: 
+	printf("\n\nEnter '1' for Enter Details Of Other Employee\nEnter '2' for Show Employee : ");
+	scanf("%d",&opt);
+	switch(opt)
+	{case 1:
+	printf("\nEnter Employee Name : ");
+	scanf("%s",empdet[1].emp_name);
+    printf("\nEnter Employee Age : ");
+	scanf("%s",empdet[1].age);
+	printf("\nEnter Employee Department Name : ");
+	scanf("%s",empdet[1].department_name);
+	printf("\nEnter Employee Phone Number : ");
+	scanf("%s",empdet[1].emp_phone_no);
+	printf("\nEnter Employee Salary : ");
+	scanf("%s",empdet[1].emp_salary);
+	i++;
+	goto L1;
+    break;
+	case 2: show_employee_details();break;
+	}
 }
 
 void show_employee_details()
-{
-	printf("\n\nEmployee Name : %s",empdet.emp_name);
-	printf("\n\nEmployee Department Name : %s",empdet.department_name);
-	printf("\n\nEmployee Phone Number : %s",empdet.emp_phone_no);
-	printf("\n\nEmployee Salary : %s",empdet.emp_salary);
+{  int opt;
+     printf("\nEnter Number Of Clients To Show : ");
+     scanf("%d",&opt);
+
+	for(int i=0;i<=opt;i++)
+	{
+	printf("\n\nEmployee Name : %s",empdet[i].emp_name);
+	printf("\n\nEmployee Age : %s",empdet[i].age);
+	printf("\n\nEmployee Department Name : %s",empdet[i].department_name);
+	printf("\n\nEmployee Phone Number : %s",empdet[i].emp_phone_no);
+	printf("\n\nEmployee Salary : %s",empdet[i].emp_salary);
+	}
 }
