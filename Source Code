@@ -63,11 +63,11 @@ L1:
 }
 
 void show_employee_details()
-{  int opt;
+{  int opt,i=0;
      printf("\nEnter Number Of Clients To Show : ");
      scanf("%d",&opt);
 
-	for(int i=0;i<=opt;i++)
+	for(i=0;i<=opt;i++)
 	{
 	printf("\n\nEmployee Name : %s",empdet[i].emp_name);
 	printf("\n\nEmployee Age : %s",empdet[i].age);
@@ -75,4 +75,5 @@ void show_employee_details()
 	printf("\n\nEmployee Phone Number : %s",empdet[i].emp_phone_no);
 	printf("\n\nEmployee Salary : %s",empdet[i].emp_salary);
 	}
+	getch();
 }
