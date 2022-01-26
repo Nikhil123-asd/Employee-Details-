@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<string.h>
+#include<stdlib.>
 
 void read_employee_details();
 void show_employee_details();
