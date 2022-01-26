@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include<string.h>
+
+void read_employee_details();
+void show_employee_details();
+
+struct Employee
+{
+	char emp_name[50];
+	char department_name[50];
+	char emp_phone_no[20];
+	char emp_salary[100];
+}empdet;
+
+int main()
+{ char opt[1];
+	printf("\nWelcome To N.K Group of Industries");
+	printf("\nEnter 'Y'/'y' to Add Employee : ");
+	scanf("%s",opt);
+	if(strcmpi(opt,"Y")==0)
+	{
+		read_employee_details();
+		show_employee_details();
+	}
+	else
+	printf("\nWrong Input");
+	return 0;	
+}
+
+void read_employee_details()
+{
+	printf("\nEnter Employee Name : ");
+	scanf("%s",empdet.emp_name);
+	printf("\nEnter Employee Department Name : ");
+	scanf("%s",empdet.department_name);
+	printf("\nEnter Employee Phone Number : ");
+	scanf("%s",empdet.emp_phone_no);
+	printf("\nEnter Employee Salary : ");
+	scanf("%s",empdet.emp_salary);
+}
+
+void show_employee_details()
+{
+	printf("\n\nEmployee Name : %s",empdet.emp_name);
+	printf("\n\nEmployee Department Name : %s",empdet.department_name);
+	printf("\n\nEmployee Phone Number : %s",empdet.emp_phone_no);
+	printf("\n\nEmployee Salary : %s",empdet.emp_salary);
+}
